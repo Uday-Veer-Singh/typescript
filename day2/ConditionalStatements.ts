@@ -171,7 +171,35 @@ if (numberToCheck3 % 5 === 0 && numberToCheck3 % 10 === 0) {
     console.log(`${numberToCheck3} is not a multiple of either 5 or 10.`);
 }  // Output: 5 is a multiple of 5 but not a multiple of 10.
 
-// check if the 
+// check if the character is vowel or consonant
+let charToCheck: string = 'b';
+if (charToCheck == (charToCheck.toLowerCase() || charToCheck.toUpperCase) && ['a', 'e', 'i', 'o', 'u'].includes(charToCheck)) {
+    console.log(`${charToCheck} is a vowel.`);
+} else if (charToCheck == (charToCheck.toLowerCase() || charToCheck.toUpperCase) && !['a', 'e', 'i', 'o', 'u'].includes(charToCheck)) {
+    console.log(`${charToCheck} is a consonant.`);
+} else {
+    console.log(`${charToCheck} is not an alphabet.`);
+} // Output: b is a consonant.
+
+// check if the numbe ris divisible by both 2 and 3
+let numberToCheck4: number = 10;
+if (numberToCheck4 % 2 === 0 && numberToCheck4 % 3 === 0) {
+    console.log(`${numberToCheck4} is divisible by both 2 and 3.`);
+} else if (numberToCheck4 % 2 === 0) {
+    console.log(`${numberToCheck4} is divisible by 2 but not divisible by 3.`);
+} else if (numberToCheck4 % 3 === 0) {
+    console.log(`${numberToCheck4} is divisible by 3 but not divisible by 2.`);
+} else {
+    console.log(`${numberToCheck4} is not divisible by either 2 or 3.`);
+} // Output: 10 is divisible by 2 but not divisible by 3.
+
+// or
+
+if (numberToCheck4 % 2 === 0 && numberToCheck4 % 3 === 0) {
+    console.log(`${numberToCheck4} is divisible by both 2 and 3.`);
+} else {
+    console.log('${numberToCheck4} is not divisible by both 2 and 3.');
+} // 
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -217,6 +245,8 @@ switch (day) {
     default:
         console.log("Invalid day number.");
 } // Output: Wednesday
+
+//
 
 ///////////////////////////////////////////////////////////////////////////////
 
