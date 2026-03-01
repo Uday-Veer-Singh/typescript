@@ -1,4 +1,5 @@
 // Named function
+// syntax
 function functionName(): void {
     console.log("This is a named function with no parameters and no return type.");
 }
@@ -53,7 +54,7 @@ function sumAll(...numbers: number[]): number {
     return numbers.reduce((acc, curr) => acc + curr, 0);
 }
 // both are correct logics
-function addAll(...numbers: number[]): number {
+function addAll(...numbers: number[]): void {
   let i ;
   let sum = 0;
   for (i = 0; i < numbers.length; i++) {
@@ -64,3 +65,10 @@ function addAll(...numbers: number[]): number {
 console.log(sumAll(1, 2, 3, 4)); // Output: 10
 console.log(addAll(1, 2, 3, 4)); // Output: 10
 
+// named functions with rest parameters (multiple types)
+function countAll(...items: (number | string)[]): number {
+    return items.length;
+}
+console.log(countAll(1, "hello", 3, "world")); // Output: 4
+
+///////////////////////////////////////////////////////////////////////////////
