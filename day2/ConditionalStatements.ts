@@ -246,8 +246,83 @@ switch (day) {
         console.log("Invalid day number.");
 } // Output: Wednesday
 
-//
+// print the month name based on the month number
+let month: number = 11;
+switch (month) {
+    case 1:
+        console.log("January");
+        break;
+    case 2:
+        console.log("February");
+        break;
+    case 3:
+        console.log("March");
+        break;
+    case 4:
+        console.log("April");
+        break;
+    case 5:
+        console.log("May");
+        break;
+    case 6:
+        console.log("June");
+        break;
+    case 7:
+        console.log("July");
+        break;
+    case 8:
+        console.log("August");
+        break;
+    case 9:
+        console.log("September");
+        break;
+    case 10:
+        console.log("October");
+        break;
+    case 11:
+        console.log("November");
+        break;
+    case 12:
+        console.log("December");
+        break;
+    default:
+        console.log("Invalid month number.");
+} // Output: November
 
+// perform basic arithmetic operations based on the user input
+let numX: number = 10;
+let numY: number = 5;
+let operator: string = '*';
+switch (operator) {
+    case '+':
+        console.log(`${numX} + ${numY} = ${numX + numY}`);
+        break;
+    case '-':
+        console.log(`${numX} - ${numY} = ${numX - numY}`);
+        break;
+    case '*':
+        console.log(`${numX} * ${numY} = ${numX * numY}`);
+        break;
+    case '/':
+        if (numY !== 0) {
+            console.log(`${numX} / ${numY} = ${numX / numY}`);
+        } else {
+            console.log("Cannot divide by zero.");
+        }
+        break;
+    default:
+        console.log("Invalid operator.");
+} // Output: 10 * 5 = 50
+
+// print the season based on the month number
+let monthNumber: number = 4;
+switch (Math.ceil(monthNumber / 3)) {
+    case 1: console.log("Winter"); break;
+    case 2: console.log("Spring"); break;
+    case 3: console.log("Summer"); break;
+    case 4: console.log("Autumn"); break;
+    default: console.log("Invalid month number.");
+} //
 ///////////////////////////////////////////////////////////////////////////////
 
 // ternary operator
