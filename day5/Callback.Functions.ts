@@ -14,4 +14,16 @@ function fetchData(message: string)
 }
 
 // Calling the function by passing the callback function as an argument
-greet ('name', fetchData);
+greet ('name', fetchData); // Output: name // Output: hello // In this example, the `greet` function takes a name and a callback function as parameters. It logs the name and then executes the callback function, passing a message to it. The `fetchData` function is defined as a callback that logs the message it receives. When we call `greet`, we pass `fetchData` as the callback, which results in both the name and the message being logged to the console. 
+
+function sum(a: number, b: number, CallDIsplayResult: (result: number) => void) {
+  let result = a + b;
+  CallDIsplayResult(result); // executing the callback function
+}
+// Callback function 
+function Displayresult(result: number)
+{
+  console.log(result);
+}
+
+sum (5, 5, Displayresult); // Output: 10 // In this example, the `sum` function takes two numbers and a callback function as parameters. It calculates the sum of the two numbers and then executes the callback function, passing the result to it. The `Displayresult` function is defined as a callback that logs the result it receives. When we call `sum`, we pass `Displayresult` as the callback, which results in the sum being logged to the console.
