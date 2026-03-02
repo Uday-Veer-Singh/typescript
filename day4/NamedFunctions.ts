@@ -70,5 +70,3 @@ function countAll(...items: (number | string)[]): number {
     return items.length;
 }
 console.log(countAll(1, "hello", 3, "world")); // Output: 4
-
-///////////////////////////////////////////////////////////////////////////////

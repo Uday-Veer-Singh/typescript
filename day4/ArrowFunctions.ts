@@ -18,7 +18,7 @@ let gret = ():void =>
 gret(); // Output: hey, ink
 
 // Example of an arrow function with parameters and return type
-let addDig(a: number, b: number): number => {
+let addDig = (a: number, b: number): number => {
     return a + b;
 }
 console.log(addDig(5, 3)); // Output: 8
@@ -38,14 +38,12 @@ let divideDig = (a: number, b: number, c?: number): number => {
 console.log(divideDig(10, 2)); // Output: 5
 console.log(divideDig(10, 2, 2)); // Output: 2.5
 
-let displayDetails = (name: string, age: number, city?: string): void => {
-    console.log(`Name: ${name}, Age: ${age}`);
-    if (city) {
-        console.log(`City: ${city}`);
-    }
+let displayDetails = (name?: string, age?: number, city?: string): void => {
+    console.log(`Name: ${name}, Age: ${age}, City: ${city}`);
 }
 displayDetails("Alice", 30); // Output: Name: Alice, Age: 30
 displayDetails("Bob", 25, "New York"); // Output: Name: Bob, Age: 25, City: New York  
+displayDetails(); // Output: Name: undefined, Age: undefined, City: undefined
 
 // Arrow functions with the default parameters and return type
 let greetYou = (name: string, postFix: string = "Sir"): string => {
