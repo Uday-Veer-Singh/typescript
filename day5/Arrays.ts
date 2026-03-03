@@ -6,38 +6,96 @@
 // using two different syntaxes: the array literal syntax and the generic array
 // type syntax.
 // Array literal syntax
-let numbers: number[] = [1, 2, 3, 4, 5]; // Array of numbers
+let numbersArr: number[] = [1, 2, 3, 4, 5]; // Array of numbersArr
 let names: string[] = ["Alice", "Bob", "Charlie"]; // Array of strings
-let mixed: (number | string)[] = [1, "Alice", 2, "Bob"]; // Array of numbers
+let mixed: (number | string)[] = [1, "Alice", 2, "Bob"]; // Array of numbersArr
 // and strings (union type)
 let booleanArray: boolean[] = [true, false, true]; // Array of booleans
 let anyArray: any[] = [1, "Alice", true, { name: "Bob" }]; // Array of any
 // type (not recommended for type safety)
 
 // Generic array type syntax
-let numbers2: Array<number> = [1, 2, 3, 4, 5]; // Array of numbers
+let numbersArr2: Array<number> = [1, 2, 3, 4, 5]; // Array of numbersArr
 let names2: Array<string> = ["Alice", "Bob", "Charlie"]; // Array of strings
 
 // Accessing array elements
-console.log(numbers[0]); // Output: 1
+console.log(numbersArr[0]); // Output: 1
 console.log(names[1]); // Output: Bob
 
 // Modifying array elements
-numbers[2] = 10; // Modifying the third element of the numbers array
-console.log(numbers); // Output: [1, 2, 10, 4, 5]
+numbersArr[2] = 10; // Modifying the third element of the numbersArr array
+console.log(numbersArr); // Output: [1, 2, 10, 4, 5]
 names[0] = "Eve"; // Modifying the first element of the names array
 console.log(names); // Output: ['Eve', 'Bob', 'Charlie']
 
 // Array methods
-numbers.push(6); // Adding an element to the end of the numbers array
-console.log(numbers); // Output: [1, 2, 10, 4, 5, 6]
+numbersArr.push(6); // Adding an element to the end of the numbersArr array
+console.log(numbersArr); // Output: [1, 2, 10, 4, 5, 6]
+
 names.pop(); // Removing the last element from the names array
 console.log(names); // Output: ['Eve', 'Bob']
 
+numbersArr.shift(); // Removing the first element from the numbersArr array
+console.log(numbersArr); // Output: [2, 10, 4, 5, 6]
+
+numbersArr.unshift(1); // Adding an element to the beginning of the numbersArr array
+console.log(numbersArr); // Output: [1, 2, 10, 4, 5, 6]
+
+let combinedArray = numbersArr.concat([7, 8, 9], [1]); // Concatenating another array to the numbersArr array
+console.log(combinedArray); // Output: [1, 2, 10, 4, 5, 6, 7, 8, 9, 1]
+
+numbersArr.slice(1, 4); // Creating a new array with elements from index 1 to 3 (not including index 4)
+console.log(numbersArr.slice(1, 4)); // Output: [2, 10, 4]
+
+numbersArr.splice(2, 1); // Removing the element at index 2 (the number 10)
+console.log(numbersArr); // Output: [1, 2, 4, 5, 6]
+
+numbersArr.splice(2, 0, 10); // Adding the number 10 back at index 2
+console.log(numbersArr); // Output: [1, 2, 10, 4, 5, 6]
+
+numbersArr.reverse(); // Reversing the order of the array
+console.log(numbersArr); // Output: [6, 5, 4, 10, 2, 1]
+
+numbersArr.sort((a, b) => a - b); // Sorting the array in ascending order
+console.log(numbersArr); // Output: [1, 2, 4, 5, 6, 10]
+
+numbersArr.sort((a, b) => b - a); // Sorting the array in descending order
+console.log(numbersArr); // Output: [10, 6, 5, 4, 2, 1]
+
+numbersArr.sort(); // Sorting the array in default order (lexicographical)
+console.log(numbersArr); // Output: [1, 10, 2, 4, 5, 6]
+
+numbersArr.indexOf(10); // Finding the index of the number 10 in the array
+console.log(numbersArr.indexOf(10)); // Output: 1
+
+numbersArr.includes(5); // Checking if the number 5 is in the array
+console.log(numbersArr.includes(5)); // Output: true
+
+numbersArr.join(","); // Joining the elements of the array into a string with a comma separator
+console.log(numbersArr.join(",")); // Output: "1,10,2,4,5,6"
+
+numbersArr.join(" - "); // Joining the elements of the array into a string with a custom separator
+console.log(numbersArr.join(" - ")); // Output: "1 - 10 - 2 - 4 - 5 - 6"
+
+numbersArr.join(); // Joining the elements of the array into a string with the default separator (comma)
+console.log(numbersArr.join()); // Output: "1,10,2,4,5,6"
+
+numbersArr.toString(); // Converting the array to a string
+console.log(numbersArr.toString()); // Output: "1,10,2,4,5,6"
+
+numbersArr.length; // Getting the length of the array
+console.log(numbersArr.length); // Output: 6
+
+numbersArr.length = 3; // Truncating the array to a length of 3
+console.log(numbersArr); // Output: [1, 10, 2]
+
+numbersArr.length = 6; // Extending the array back to a length of 6 (the new elements will be undefined)
+console.log(numbersArr); // Output: [1, 10, 2, undefined, undefined, undefined]
+
 // Iterating over arrays
 // Using for loop to iterate over arrays
-for (let i = 0; i < numbers.length; i++) {
-  console.log(numbers[i]); // Output: 1, 2, 10, 4, 5, 6
+for (let i = 0; i < numbersArr.length; i++) {
+  console.log(numbersArr[i]); // Output: 1, 2, 10, 4, 5, 6
 }
 
 // Using for...in loop to iterate over arrays
@@ -74,12 +132,12 @@ let matrix: number[][] = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9],
-]; // A 2D array (matrix) of numbers
+]; // A 2D array (matrix) of numbersArr
 
 console.log(matrix[0][1]); // Output: 2
 console.log(matrix[2][0]); // Output: 7
 
-// In this example, we have defined arrays of numbers and strings using both
+// In this example, we have defined arrays of numbersArr and strings using both
 // the array literal syntax and the generic array type syntax. We have also
 // demonstrated how to access and modify array elements, use array methods,
 // iterate over arrays, and create arrays of objects and multidimensional
@@ -96,18 +154,18 @@ console.log(matrix[2][0]); // Output: 7
 
 // For example, you can use the `map` method to create a new array by applying
 // a function to each element of an existing array:
-let squaredNumbers = numbers.map((num) => num * num);
-console.log(squaredNumbers); // Output: [1, 4, 100, 16, 25, 36]
+let squarednumbersArr = numbersArr.map((num) => num * num);
+console.log(squarednumbersArr); // Output: [1, 4, 100, 16, 25, 36]
 
 // You can also use the `filter` method to create a new array that contains
 // only the elements that satisfy a certain condition:
-let evenNumbers = numbers.filter((num) => num % 2 === 0);
-console.log(evenNumbers); // Output: [2, 4, 6]
+let evennumbersArr = numbersArr.filter((num) => num % 2 === 0);
+console.log(evennumbersArr); // Output: [2, 4, 6]
 
 // The `reduce` method can be used to accumulate values from an array into a
 // single result:
-let sumOfNumbers = numbers.reduce((acc, num) => acc + num, 0);
-console.log(sumOfNumbers); // Output: 28
+let sumOfnumbersArr = numbersArr.reduce((acc, num) => acc + num, 0);
+console.log(sumOfnumbersArr); // Output: 28
 
 // These methods provide powerful ways to manipulate and transform arrays in
 // TypeScript, making it easier to work with collections of data.
