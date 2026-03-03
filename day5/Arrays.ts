@@ -184,18 +184,39 @@ console.log(squarednumbersArr); // Output: [1, 4, 100, 16, 25, 36]
 let evennumbersArr = numbersArr.filter((num) => num % 2 === 0);
 console.log(evennumbersArr); // Output: [2, 4, 6]
 
+let longNames = names2.filter((name) => name.length > 4);
+console.log(longNames); // Output: ['Alice', 'Charlie']
+
+let namesWithB = names2.filter((name) => name.startsWith("B"));
+console.log(namesWithB); // Output: ['Bob']
+
 // The `reduce` method can be used to accumulate values from an array into a
 // single result:
-let sumOfnumbersArr = numbersArr.reduce((acc, num) => acc + num, 0);
+let sumOfnumbersArr = numbersArr.reduce((acc, num) => acc + num);
 console.log(sumOfnumbersArr); // Output: 28
+
+let sumOfnumbersArrWithInitialValue = numbersArr.reduce(
+  (acc, num) => acc + num,
+  10
+);
+console.log(sumOfnumbersArrWithInitialValue); // Output: 38 (10 + 1 + 2 + 10 + 4 + 5 + 6)
+
+let productOfnumbersArr = numbersArr.reduce((acc, num) => acc * num, 2);
+console.log(productOfnumbersArr); // Output: 1440 (2 * 1 * 2 * 10 * 4 * 5 * 6)
 
 // you can also use the 'some' method to check if at least one element in the array satisfies a certain condition:
 let hasEvenNumber = numbersArr.some((num) => num % 2 === 0);
 console.log(hasEvenNumber); // Output: true
 
+let hasNumberGreaterThan4 = numbersArr.some((num) => num > 4);
+console.log(hasNumberGreaterThan4); // Output: true
+
 // And the 'every' method to check if all elements in the array satisfy a certain condition:
 let allEvenNumbers = numbersArr.every((num) => num % 2 === 0);
 console.log(allEvenNumbers); // Output: false
+
+let allNumbersGreaterThan0 = numbersArr.every((num) => num > 0);
+console.log(allNumbersGreaterThan0); // Output: true
 
 // These methods provide powerful ways to manipulate and transform arrays in
 // TypeScript, making it easier to work with collections of data.
