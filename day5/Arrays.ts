@@ -109,9 +109,6 @@ for (let name of names) {
   console.log(name); // Output: Eve, Bob
 }
 
-// Using forEach method to iterate over arrays
-names.forEach((name) => console.log(name)); // Output: Eve, Bob
-
 // Array of objects
 interface Person {
   name: string;
@@ -152,6 +149,31 @@ console.log(matrix[2][0]); // Output: 7
 // which allow you to perform complex operations on arrays in a functional
 // programming style.
 
+// Using forEach method to iterate over arrays
+// The `forEach` method executes a provided function once for each array element.
+// It's a convenient way to iterate over arrays without needing to manage the loop
+names.forEach((name) => console.log(name)); // Output: Eve, Bob
+names2.forEach(function (fruitList, index) {
+  console.log(`${index}: ${fruitList}`); // Output: 0: Alice, 1: Bob, 2: Charlie
+});
+names2.forEach((fruitList, index) => console.log(`${index}: ${fruitList}`)); // Output: 0: Alice, 1: Bob, 2: Charlie
+
+names2.forEach((fruitList, index) => {
+  console.log(fruitList.toUpperCase());
+}); // Output: ALICE, BOB, CHARLIE
+
+names2.forEach((fruitList, index) => {
+  if (fruitList.startsWith("B")) {
+    console.log(fruitList); // Output: Bob
+  }
+}); // Output: Bob
+
+names2.forEach((fruitList, index) => {
+  if (fruitList.length > 3) {
+    console.log(fruitList); // Output: Alice, Charlie
+  }
+}); // Output: Alice, Charlie
+
 // For example, you can use the `map` method to create a new array by applying
 // a function to each element of an existing array:
 let squarednumbersArr = numbersArr.map((num) => num * num);
@@ -166,6 +188,14 @@ console.log(evennumbersArr); // Output: [2, 4, 6]
 // single result:
 let sumOfnumbersArr = numbersArr.reduce((acc, num) => acc + num, 0);
 console.log(sumOfnumbersArr); // Output: 28
+
+// you can also use the 'some' method to check if at least one element in the array satisfies a certain condition:
+let hasEvenNumber = numbersArr.some((num) => num % 2 === 0);
+console.log(hasEvenNumber); // Output: true
+
+// And the 'every' method to check if all elements in the array satisfy a certain condition:
+let allEvenNumbers = numbersArr.every((num) => num % 2 === 0);
+console.log(allEvenNumbers); // Output: false
 
 // These methods provide powerful ways to manipulate and transform arrays in
 // TypeScript, making it easier to work with collections of data.
