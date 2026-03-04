@@ -14,7 +14,7 @@ let myObject = {
 // Diffferent Ways to Create Objects in JavaScript and TypeScript:
 // using  'object' type - directly define the values for variables (JS/TS)
 // Inline Type Object - we also define the dataype of the keys and values (TS specific)
-// using type aliases (JS/TS)
+// using type aliases (TS)
 // using the classes (JS/TS)
 
 //OR
@@ -70,6 +70,98 @@ console.log(person); // Output: { name: 'John', age: 30, city: 'USA' }
 person.age = 31;
 console.log(person); // Output: { name: 'John', age: 31, city: 'USA' }
 
+// inline type object
+let personWithInlineType: {
+  name: string;
+  age: number;
+  city: string;
+  summary: () => string;
+} = {
+  name: "Alice",
+  age: 25,
+  city: "Los Angeles",
+  summary: function () {
+    return `My name is ${this.name}, I am ${this.age} years old and I live in ${this.city}.`;
+  },
+};
+
+personWithInlineType.summary(); // Output: My name is Alice, I am 25 years old and I live in Los Angeles.
+
+// Using 'type' aliases
+type PersonType = {
+  name: string;
+  age: number;
+  city: string;
+  summary: () => string;
+};
+
+let personWithTypeAlias: PersonType = {
+  name: "Bob",
+  age: 30,
+  city: "Chicago",
+  summary: function () {
+    return `My name is ${this.name}, I am ${this.age} years old and I live in ${this.city}.`;
+  },
+};
+
+let personWithTypeAlias2: PersonType = {
+  name: "Charlie",
+  age: 28,
+  city: "San Francisco",
+  summary: function () {
+    return `My name is ${this.name}, I am ${this.age} years old and I live in ${this.city}.`;
+  },
+};
+
+personWithTypeAlias.summary(); // Output: My name is Bob, I am 30 years old and I live in Chicago.
+personWithTypeAlias2.summary(); // Output: My name is Charlie, I am 28 years old and I live in San Francisco.
+
+// for in loop
+for (let key in person) {
+  console.log(key + ": " + person[key]);
+}
+// Output:
+// name: John
+// age: 31
+// city: USA
+
+// Object.keys() method
+// The Object.keys() method returns an array of a given object's own enumerable property names.
+console.log(Object.keys(person)); // Output: [ 'name', 'age', 'city' ]
+
+// Intersecting types
+// In TypeScript, you can create new types by intersecting existing types using the '&' operator. This allows you to combine multiple types into one.
+type Name = {
+  name: string;
+};
+type Age = {
+  age: number;
+};
+
+type PersonWithIntersectingTypes = Name & Age;
+
+let personWithIntersectingTypes: PersonWithIntersectingTypes = {
+  name: "David",
+  age: 35,
+};
+
+personWithIntersectingTypes; // Output: { name: 'David', age: 35 }
+
+type personWithIntersectingTypes2 = Name &
+  Age & {
+    getDetails: () => string;
+  };
+
+let personWithIntersectingTypes2: personWithIntersectingTypes2 = {
+  name: "Eve",
+  age: 29,
+  getDetails: function () {
+    return `My name is ${this.name} and I am ${this.age} years old.`;
+  },
+};
+
+personWithIntersectingTypes2.getDetails(); // Output: My name is Eve and I am 29 years old.
+
 // Object Methods
 // An object can also have methods, which are functions that are properties of the object.
 let personWithMethod = {
@@ -91,6 +183,7 @@ function Person(name, age) {
 }
 let person1 = new Person("Bob", 25);
 console.log(person1); // Output: Person { name: 'Bob', age: 25 }
+
 // Object Prototypes
 // In TypeScript, you can use prototypes to add properties and methods to objects.
 Person.prototype.greet = function () {
@@ -98,10 +191,40 @@ Person.prototype.greet = function () {
 };
 person1.greet(); // Output: Hello, my name is Bob
 
-// Object is a fundamental data type in JavaScript and TypeScript that allows us to store and manipulate complex data structures. It provides a way to group related data and functions together, making it easier to manage and organize our code.
 // In TypeScript, we can also define interfaces and classes to create more structured and type-safe objects.
 // Interfaces allow us to define the shape of an object, while classes provide a blueprint for creating objects with specific properties and methods.
-// Overall, objects are a powerful and essential part of JavaScript and TypeScript programming, enabling us to create complex data structures and implement object-oriented programming concepts.
+
+// Class
+class Animal1 {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+  speak() {
+    console.log(this.name + " makes a noise.");
+  }
+}
+
+let animal = new Animal1("Dog");
+animal.speak(); // Output: Dog makes a noise.
+
+class contactDetails {
+  email: string;
+  phone: string;
+  constructor(email: string, phone: string) {
+    this.email = email;
+    this.phone = phone;
+  }
+
+  getContactDetails(): string {
+    return `Email: ${this.email}, Phone: ${this.phone}`;
+  }
+}
+
+let empContactDetails = new contactDetails("sihxiou", "xygix");
+console.log(empContactDetails.getContactDetails()); // Output: Email: sihxiou, Phone: xygix
+empContactDetails.getContactDetails(); // Output: Email: sihxiou, Phone: xygix
+
 // interface and classes
 interface PersonInterface {
   name: string;
