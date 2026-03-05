@@ -246,3 +246,61 @@ class PersonClass implements PersonInterface {
 }
 let person2 = new PersonClass("Charlie", 28);
 person2.greet(); // Output: Hello, my name is Charlie
+
+///////////////////////////////////////////////////////////////////////////////
+/*
+1. Class
+2. Read only properties
+3. Optional property
+4. Static properties and methods
+  // Static properties /methods are common/ shared across all the objects
+  // Static properties/ methods can be accessed through class name directly
+  // static properties/ methods can bemodified using any object
+*/
+
+class student {
+  readonly studentId: number;
+  // Read only property (can obly be assigned once, inside constructor)
+  name: string; // regular property
+  email?: string; // optional property
+  static schoolName: string = "mayor"; // Static property shared among all
+  // instances or objects
+
+  // Constructor - used to initialise the properties into keys or variables
+  constructor(id: number, name: string, email?: string) {
+    this.studentId = id;
+    this.name = name;
+    this.email = email;
+  }
+
+  // Method
+  displayInfo() {
+    console.log("Student ID: ", this.studentId);
+    console.log("Student Name ", this.name);
+
+    if (this.email) {
+      console.log("Email: ", this.email);
+    } else {
+      console.log("Email is not provided");
+    }
+    console.log("school name", student.schoolName);
+    // Access static property using student (class name)
+  }
+
+  static changeSchoolName(newName: string): void {
+    student.schoolName = newName;
+  }
+}
+
+// Object or Usage
+let sId1 = new student(1022, "mike", "rgh@gg");
+
+// Display student info
+sId1.displayInfo();
+
+// try to student ID of read only
+// sId1.studentId = 111; // Cannot assign to 'studentId' because it is a
+// read-only property
+
+// Change the school name using static method
+student.changeSchoolName("school");

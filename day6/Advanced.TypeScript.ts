@@ -117,7 +117,7 @@ type B = IsString<number>; // false
 
 // --- Infer Keyword ---
 // Extract return type from function type
-type ReturnType<T> = T extends (...args: any[]) => infer R ? R : never;
+type ReturnTypee<T> = T extends (...args: any[]) => infer R ? R : never;
 
 // Extract promise resolved value
 type UnwrapPromise<T> = T extends Promise<infer U> ? U : T;
@@ -178,7 +178,7 @@ interface ErrorResponse {
   error: string;
 }
 
-type Response = SuccessResponse | ErrorResponse;
+type Responsee = SuccessResponse | ErrorResponse;
 
 function handleResponse(response: Response) {
   // TypeScript narrows based on 'status' discriminant
@@ -350,9 +350,7 @@ class SqlQueryBuilder<T extends Record<string, any>>
 
   build(): string {
     const fields =
-      this.selectedFields.length > 0
-        ? this.selectedFields.join(", ")
-        : "*";
+      this.selectedFields.length > 0 ? this.selectedFields.join(", ") : "*";
     let query = `SELECT ${fields} FROM ${this.tableName}`;
 
     if (Object.keys(this.conditions).length > 0) {
@@ -464,7 +462,11 @@ async function retry<T>(
 
 // Enable with "experimentalDecorators": true in tsconfig
 
-function Log(target: any, propertyName: string, descriptor: PropertyDescriptor) {
+function Log(
+  target: any,
+  propertyName: string,
+  descriptor: PropertyDescriptor
+) {
   const originalMethod = descriptor.value;
   descriptor.value = function (...args: any[]) {
     console.log(`Calling ${propertyName} with args:`, args);
